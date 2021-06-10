@@ -1,7 +1,8 @@
 //jshint esversion:6
-require('dotenv').config();
-const express = require('express');
-const https = require('https');
+require('dotenv').config(); // for my api
+const express = require('express'); //to use express
+const https = require('https'); //to fetch https api
+const request = require('request');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -18,9 +19,9 @@ app.get("/", function(req, res){
 app.post('/', function(req, res){
   const apiKey = process.env.API_KEY;
   const query = req.body.cityName;
-  const units = "metric";
+  const units = "imperial";
 
-  const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&appid=" + apiKey + "&" + units;
+  const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&appid=" + apiKey + "&units=" + units;
   https.get(url, function(response){
     console.log(response.statusCode);
     response.on('data', function(data){       //callback data
@@ -28,9 +29,9 @@ app.post('/', function(req, res){
       const weatherDesc = weatherData.weather[0].description;
       const icon = weatherData.weather[0].icon;
       const imageURL = "http://openweathermap.org/img/wn/" +icon +"@2x.png";
-      console.log(weatherDesc);
-      res.write("<p>Weather is</p>");
-      res.write("<h1>The weather is  " + weatherDesc + " in" + query + "</h1>");
+      const weatherTemp = weatherData.main.temp;
+      res.write("<h1>The Temperature is: " + weatherTemp + " Degrees in Fahrenheit" + "</h1>");
+      res.write("<h1>The weather is  like " + weatherDesc + " in " + query + "</h1>");
       res.write("<img src =" + imageURL + ">");
       res.send();
     });
