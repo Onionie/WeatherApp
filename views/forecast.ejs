@@ -1,0 +1,69 @@
+<%- include("partials/header")-%>
+<!-- Five Day Forecast-->
+  <div id="five-day-box">
+    <div class="five-day-row">
+      <div class="row">
+        <!-- Five Day Weather Cards-->
+        <div class="col-1"></div>
+
+        <!-- day 1 -->
+        <div class="col-lg-2 col-md-12 col-sm-12 text-center">
+          <div class="card">
+            <div class="card-body">
+              <h1><%= SendData.day1Date%></p>
+              <h1><%= SendData.day1Temp%></p>
+              <img src="<%= SendData.currIcon%>">
+              <h2><%= SendData.currDesc%></p>
+              <h2><%= SendData.currHumidity %></h2>
+            </div>
+          </div>
+        </div>
+        <!-- Day 2 -->
+        <div class="col-lg-2 col-md-12 col-sm-12 text-center">
+          <div class="card">
+            <div class="card-body">
+              <h1 id="m1"><%= SendData.currTemp%></p>
+              <img src="<%= SendData.currIcon%>">
+              <h2 id="m2"><%= SendData.currDesc%></p>
+              <h2><%= SendData.currHumidity %></h2>
+            </div>
+          </div>
+        </div>
+        <!-- Day 3 -->
+        <div class="col-lg-2 col-md-12 col-sm-12 text-center">
+          <div class="card">
+            <div class="card-body">
+              <h1 id="m1"><%= SendData.currTemp%></p>
+              <img src="<%= SendData.currIcon%>">
+              <h2 id="m2"><%= SendData.currDesc%></p>
+              <h2><%= SendData.currHumidity %></h2>
+            </div>
+          </div>
+        </div>
+        <!-- Day 4 -->
+        <div class="col-lg-2 col-md-12 col-sm-12 text-center">
+          <div class="card">
+            <div class="card-body">
+              <h1 id="m1"><%= SendData.currTemp%></p>
+              <img src="<%= SendData.currIcon%>">
+              <h2 id="m2"><%= SendData.currDesc%></p>
+              <h2><%= SendData.currHumidity %></h2>
+            </div>
+          </div>
+        </div>
+        <!-- Day 5 -->
+        <div class="col-lg-2 col-sm-12 text-center">
+          <div class="card">
+            <div class="card-body">
+              <h1 id="m1"><%= SendData.currTemp%></p>
+              <img src="<%= SendData.currIcon%>">
+              <h2 id="m2"><%= SendData.currDesc%></p>
+              <h2><%= SendData.currHumidity %></h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+
+<%- include("partials/footer")-%>
