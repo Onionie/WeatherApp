@@ -6,17 +6,34 @@
   <title>Weather Forecast</title>
 
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
   <link rel="icon" href="/images/icon.svg" sizes="32x32">
   <link rel="stylesheet" href="/css/styles.css">
 </head>
-
-<div class="top-border">
+<!-- <div class="top-border">
   <h1><i class="suncloud fas fa-cloud-sun fa-lg"></i> Weather Forecast</h1>
-</div>
+    <a class= "left" href="/">Current Weather</a>
+    <a href="/forecast">5 Days Forecast</a>
+</div> -->
 
 <body>
+  <!-- Nav Bar -->
+  <nav class="navbar  navbar-expand-xl navbar-dark top-border">
+    <h1><i class="suncloud fas fa-cloud-sun fa-lg"></i> Weather Forecast</h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav justify-content-center ml-auto">
+        <li class="nav-item">
+          <a class="nav-link left" href="/">Current Weather</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/forecast">5 Days Forecast</a>
+        </li>
+      </ul>
+    </div>
+  </nav>

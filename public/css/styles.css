@@ -20,6 +20,19 @@ img{
   border-radius: 16px;
 }
 
+li{
+  font-size: 1.5rem;
+  color: white;
+}
+
+.nav-item{
+  padding: 0 18px;
+}
+
+.navbar{
+  padding: 0 0 4.5rem 0;
+}
+
 .mainbox {
   width: 600px;
   height: 400px;
@@ -34,8 +47,10 @@ img{
   color: white;
 }
 
+
 .top-border{
   height: 10%;
+  width: 100%;
   background-image: linear-gradient(65deg, #7C83FD, #FBE0C4);
   padding: 1%;
   color: white;
