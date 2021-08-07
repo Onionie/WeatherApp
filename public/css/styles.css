@@ -25,15 +25,39 @@ a{
   color: black;
 }
 
+footer{
+  text-align: center;
+}
+
+.link{
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover{
+    text-decoration: none;
+    color: #0CECDD;
+}
+
+.topHead{
+  margin: auto;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.topHead form{
+  padding: 10px 30%;
+}
 
 .mainbox {
   width: 60%;
-  height: 700px;
-  margin: 3% auto;
+  height: 500px;
+  margin: 2% auto;
   background: rgba(250, 244, 255, 0.9);
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
   text-align: center;
+  padding-top: 20px;
 }
 
 .suncloud{
@@ -60,10 +84,10 @@ a{
 }
 
 .card {
-  width: 300px;
+  width: 310px;
   height: 350px;
-  margin: 5% 25%;
-  background: #FAF4FF;
+  margin: 30px auto;
+  background: rgba(250, 244, 255, 0.9);
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
   text-align: center;
