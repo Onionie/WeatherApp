@@ -33,35 +33,54 @@ app.post('/', function(req, res){
   const query = req.body.City;
   const units = "imperial";
 
-  const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&appid=" + apiKey + "&units=" + units;
+  //Current Weather
+  // const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&appid=" + apiKey + "&units=" + units;
+  //
+  // https.get(url, function(response){
+  //   console.log(response.statusCode);
+  //   response.on('data', function(data1){       //callback data
+  //     const weatherData = JSON.parse(data1); //parse the data into JSON
+  //     console.log(weatherData);
+  //     const mainLocationCity = weatherData.name;
+  //     const mainIcon = weatherData.weather[0].icon;
+  //     const iconURL = "http://openweathermap.org/img/wn/" +mainIcon +"@2x.png";
+  //     const mainDesc = weatherData.weather[0].description;
+  //     const mainTemp = weatherData.main.temp;
+  //     const mainHumidity = weatherData.main.humidity;
+  //
+  //     const sendData= {};
+  //     sendData.location = mainLocationCity;
+  //     sendData.currIcon = iconURL;
+  //     sendData.currDesc = mainDesc;
+  //     sendData.currTemp = Math.floor(mainTemp) + "°F";
+  //     sendData.currHumidity = "Humidity: " + mainHumidity + "%";
+  //     res.render('index',{
+  //       SendData: sendData
+  //     });
+  //   });
+  // });
 
-  //const url = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&appid=6eb4982f4049ecc9d77e39da9691fce8&units=imperial";
-  https.get(url, function(response){
-    console.log(response.statusCode);
-    response.on('data', function(data1){       //callback data
-      const weatherData = JSON.parse(data1); //parse the data into JSON
-      console.log(weatherData);
-      const mainLocationCity = weatherData.name;
-      const mainIcon = weatherData.weather[0].icon;
-      const iconURL = "http://openweathermap.org/img/wn/" +mainIcon +"@2x.png";
-      const mainDesc = weatherData.weather[0].description;
-      const mainTemp = weatherData.main.temp;
-      const mainHumidity = weatherData.main.humidity;
+  //5 Days Forecast
+  const url1 = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&appid=" + apiKey + "&units=imperial";
+  https.get(url1, (response) => {
+    response.on('data', (data2) =>{
+      const forecastData = JSON.parse(data2);
+      console.log(forecastData);
+      const day1temp = Math.floor(forecastData.list[3].main.temp);
+      const day1Date = (forecastData.list[3].dt_txt).slice(5, 10);
 
 
-      const sendData= {};
-      sendData.location = mainLocationCity;
-      sendData.currIcon = iconURL;
-      sendData.currDesc = mainDesc;
-      sendData.currTemp = Math.floor(mainTemp) + "°F";
-      sendData.currHumidity = "Humidity: " + mainHumidity + "%";
-      res.render('index',{
+      const sendData = {};
+      sendData.day1Date = day1Date;
+      sendData.day1Temp = day1temp + "°F";
+      res.render('index', {
         SendData: sendData
       });
     });
   });
 
 
+});
 
 
 
@@ -80,7 +99,7 @@ app.post('/', function(req, res){
   //   });
   //
   // }); //https.get end
-});
+
 
 
 

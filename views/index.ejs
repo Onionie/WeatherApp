@@ -31,9 +31,9 @@
       </form>
       <h1 class="location"> <%= SendData.location%></h1>
       <h1 id="m1"><%= SendData.currTemp%></p>
-        <img src="<%= SendData.currIcon%>">
-        <h2 id="m2"><%= SendData.currDesc%></p>
-          <h2><%= SendData.currHumidity %></h2>
+      <img src="<%= SendData.currIcon%>">
+      <h2 id="m2"><%= SendData.currDesc%></p>
+      <h2><%= SendData.currHumidity %></h2>
     </div>
   </div>
 
@@ -43,33 +43,60 @@
       <div class="row">
         <!-- Five Day Weather Cards-->
         <div class="col-1"></div>
+
+        <!-- day 1 -->
         <div class="col-lg-2 col-md-12 col-sm-12 text-center">
           <div class="card">
-            <div id="div0" class="card-body">
+            <div class="card-body">
+              <h1><%= SendData.day1Date%></p>
+              <h1><%= SendData.day1Temp%></p>
+              <img src="<%= SendData.currIcon%>">
+              <h2><%= SendData.currDesc%></p>
+              <h2><%= SendData.currHumidity %></h2>
             </div>
           </div>
         </div>
+        <!-- Day 2 -->
         <div class="col-lg-2 col-md-12 col-sm-12 text-center">
           <div class="card">
-            <div id="div1" class="card-body">
+            <div class="card-body">
+              <h1 id="m1"><%= SendData.currTemp%></p>
+              <img src="<%= SendData.currIcon%>">
+              <h2 id="m2"><%= SendData.currDesc%></p>
+              <h2><%= SendData.currHumidity %></h2>
             </div>
           </div>
         </div>
+        <!-- Day 3 -->
         <div class="col-lg-2 col-md-12 col-sm-12 text-center">
           <div class="card">
-            <div id="div2" class="card-body">
+            <div class="card-body">
+              <h1 id="m1"><%= SendData.currTemp%></p>
+              <img src="<%= SendData.currIcon%>">
+              <h2 id="m2"><%= SendData.currDesc%></p>
+              <h2><%= SendData.currHumidity %></h2>
             </div>
           </div>
         </div>
+        <!-- Day 4 -->
         <div class="col-lg-2 col-md-12 col-sm-12 text-center">
           <div class="card">
-            <div id="div3" class="card-body">
+            <div class="card-body">
+              <h1 id="m1"><%= SendData.currTemp%></p>
+              <img src="<%= SendData.currIcon%>">
+              <h2 id="m2"><%= SendData.currDesc%></p>
+              <h2><%= SendData.currHumidity %></h2>
             </div>
           </div>
         </div>
+        <!-- Day 5 -->
         <div class="col-lg-2 col-sm-12 text-center">
           <div class="card">
-            <div id="div4" class="card-body">
+            <div class="card-body">
+              <h1 id="m1"><%= SendData.currTemp%></p>
+              <img src="<%= SendData.currIcon%>">
+              <h2 id="m2"><%= SendData.currDesc%></p>
+              <h2><%= SendData.currHumidity %></h2>
             </div>
           </div>
         </div>
