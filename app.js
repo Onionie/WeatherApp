@@ -40,11 +40,13 @@ app.post('/', function(req, res){
     console.log(response.statusCode);
     response.on('data', function(data1){       //callback data
       const weatherData = JSON.parse(data1); //parse the data into JSON
+      console.log(weatherData);
       const mainLocationCity = weatherData.name;
       const mainIcon = weatherData.weather[0].icon;
       const iconURL = "http://openweathermap.org/img/wn/" +mainIcon +"@2x.png";
       const mainDesc = weatherData.weather[0].description;
       const mainTemp = weatherData.main.temp;
+      const mainHumidity = weatherData.main.humidity;
 
 
       const sendData= {};
@@ -52,6 +54,7 @@ app.post('/', function(req, res){
       sendData.currIcon = iconURL;
       sendData.currDesc = mainDesc;
       sendData.currTemp = Math.floor(mainTemp) + "°F";
+      sendData.currHumidity = "Humidity: " + mainHumidity + "%";
       res.render('index',{
         SendData: sendData
       });

@@ -28,7 +28,7 @@
     </form> -->
 
     <div class="row">
-        <div class="box col-lg-12 col-sm-12">
+        <div class="mainbox col-lg-12 col-sm-12">
           <form action="/" method="post">
             <input type="text" name="City" placeholder="Search by City or Zip Code" autocomplete="off" class="form-control search-box">
             <button class="btn btn-default" type="submit">
@@ -36,9 +36,10 @@
             </button>
           </form>
           <h1 class="location"> <%= SendData.location%></h1>
-          <h3 id="m1"><%= SendData.currTemp%></p>
+          <h1 id="m1"><%= SendData.currTemp%></p>
           <img src="<%= SendData.currIcon%>">
-          <h3 id="m2"><%= SendData.currDesc%></p>
+          <h2 id="m2"><%= SendData.currDesc%></p>
+          <h2><%= SendData.currHumidity %></h2>
         </div>
 
       </div>

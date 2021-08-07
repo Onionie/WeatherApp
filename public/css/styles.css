@@ -16,7 +16,7 @@ button{
   display: inline-block;
 }
 
-.box {
+.mainbox {
   width: 600px;
   height: 400px;
   margin: 20px auto;
