@@ -1,19 +1,43 @@
-h1{
-  color: red;
+body {
+    background-image:url("/Images/mountain.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
-body{
-  vertical-align: middle;
-  background-image: linear-gradient(65deg, #EFFCEF, #CCFFBD);
-  min-height: 1000px;
+html {
+    height: 100%
+}
+
+form{
+  padding-top: 10px;
+}
+
+button{
+  display: inline-block;
 }
 
 .box {
-  width: 800px;
-  height: 500px;
-  margin: 100px auto;
+  width: 600px;
+  height: 400px;
+  margin: 20px auto;
   background: #F2F7FF;
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
   text-align: center;
+}
+
+.suncloud{
+  color: white;
+}
+
+.top-border{
+  height: 10%;
+  background-image: linear-gradient(65deg, #7C83FD, #FBE0C4);
+  padding: 1%;
+  color: white;
+}
+
+.search-box{
+  width: 80%;
+  display: inline-block;
 }
