@@ -22,10 +22,11 @@ app.get("/", function(req, res){
 
   const sendData = {
     location:"",
-    temp: ""
+    currImage:"",
+    currTemp: ""
   }
   res.render('index', {
-    sendData: sendData
+    SendData: sendData
   });
 
 });
@@ -37,22 +38,19 @@ app.post('/', function(req, res){
 
   const url = "https://api.openweathermap.org/data/2.5/weather?q=" + query + "&appid=" + apiKey + "&units=" + units;
 
-
   //const url = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&appid=6eb4982f4049ecc9d77e39da9691fce8&units=imperial";
   https.get(url, function(response){
     console.log(response.statusCode);
-    response.on('data', function(data){       //callback data
-      const weatherData = JSON.parse(data); //parse the data into JSON
-      console.log(weatherData);
+    response.on('data', function(data1){       //callback data
+      const weatherData = JSON.parse(data1); //parse the data into JSON
       mainTemp = weatherData.main.temp;
-      mainLocation = weatherData.name;
-      console.log(mainTemp);
+      mainLocationCity = weatherData.name;
 
       const sendData= {};
-      sendData.location = mainLocation;
-      sendData.temp = Math.floor(mainTemp);
+      sendData.location = mainLocationCity;
+      sendData.currTemp = Math.floor(mainTemp) + "°F";
       res.render('index',{
-        sendData: sendData
+        SendData: sendData
       })
       });
     });
