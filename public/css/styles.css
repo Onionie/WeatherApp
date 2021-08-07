@@ -16,7 +16,7 @@ button{
 }
 
 img{
-  background-color: white;
+  background-color: #FBE0C4;
   border-radius: 16px;
 }
 
@@ -24,7 +24,7 @@ img{
   width: 600px;
   height: 400px;
   margin: 20px auto;
-  background: #FFF6F6;
+   background: rgba(250, 244, 255, 0.9);
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -47,14 +47,14 @@ img{
 }
 
 #five-day-box {
-  padding: 32px 0;
+  padding: 10px auto;
   text-align: center;
 }
 
 .card {
   width: 300px;
   height: 350px;
-  margin: 20px 25%;
+  margin: 5% 25%;
   background: #FAF4FF;
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
