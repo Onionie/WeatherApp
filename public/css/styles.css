@@ -1,0 +1,19 @@
+h1{
+  color: red;
+}
+
+body{
+  vertical-align: middle;
+  background-image: linear-gradient(65deg, #EFFCEF, #CCFFBD);
+  min-height: 1000px;
+}
+
+.box {
+  width: 800px;
+  height: 500px;
+  margin: 100px auto;
+  background: #F2F7FF;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
