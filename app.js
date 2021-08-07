@@ -21,9 +21,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get("/", function(req, res){
 
   const sendData = {
-    location:"",
-    currImage:"",
-    currTemp: ""
   }
   res.render('index', {
     SendData: sendData
@@ -43,17 +40,23 @@ app.post('/', function(req, res){
     console.log(response.statusCode);
     response.on('data', function(data1){       //callback data
       const weatherData = JSON.parse(data1); //parse the data into JSON
-      mainTemp = weatherData.main.temp;
-      mainLocationCity = weatherData.name;
+      const mainLocationCity = weatherData.name;
+      const mainIcon = weatherData.weather[0].icon;
+      const iconURL = "http://openweathermap.org/img/wn/" +mainIcon +"@2x.png";
+      const mainDesc = weatherData.weather[0].description;
+      const mainTemp = weatherData.main.temp;
+
 
       const sendData= {};
       sendData.location = mainLocationCity;
+      sendData.currIcon = iconURL;
+      sendData.currDesc = mainDesc;
       sendData.currTemp = Math.floor(mainTemp) + "°F";
       res.render('index',{
         SendData: sendData
-      })
       });
     });
+  });
 
 
 
