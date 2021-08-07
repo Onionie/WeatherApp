@@ -4,11 +4,11 @@ body {
 }
 
 html {
-    height: 110%
+    height: 100%
 }
 
 form{
-  padding-top: 10px;
+  padding: 10px 10%;
 }
 
 button{
@@ -20,24 +20,17 @@ img{
   border-radius: 16px;
 }
 
-li{
+a{
   font-size: 1.5rem;
-  color: white;
+  color: black;
 }
 
-.nav-item{
-  padding: 0 18px;
-}
-
-.navbar{
-  padding: 0 0 4.5rem 0;
-}
 
 .mainbox {
-  width: 600px;
-  height: 400px;
-  margin: 20px auto;
-   background: rgba(250, 244, 255, 0.9);
+  width: 60%;
+  height: 700px;
+  margin: 3% auto;
+  background: rgba(250, 244, 255, 0.9);
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
   text-align: center;

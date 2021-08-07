@@ -1,7 +1,6 @@
 <%- include("partials/header") -%>
 <!-- Current Weather -->
-  <div class="row">
-    <div class="mainbox col-lg-12 col-sm-12">
+    <div class="mainbox">
       <form action="/" method="post">
         <input type="text" name="City" placeholder="Search by City or Zip Code" autocomplete="off" class="form-control search-box">
         <button class="btn btn-default" type="submit">
@@ -13,8 +12,10 @@
       <img src="<%= SendData.currIcon%>">
       <h2 id="m2"><%= SendData.currDesc%></p>
       <h2><%= SendData.currHumidity %></h2>
+      <h2><%= SendData.currTempMin %></h2>
+      <h2><%= SendData.currTempMax %></h2>
+      <h2><%= SendData.currWindSpeed %></h2>
     </div>
-  </div>
 
 
 

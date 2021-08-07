@@ -47,6 +47,9 @@ app.post('/', function(req, res){
       const mainDesc = weatherData.weather[0].description;
       const mainTemp = weatherData.main.temp;
       const mainHumidity = weatherData.main.humidity;
+      const mainWindSpeed = weatherData.wind.speed;
+      const mainTempMin = Math.floor(weatherData.main.temp_min);
+      const mainTempMax = Math.floor(weatherData.main.temp_max);
 
       const sendData= {};
       sendData.location = mainLocationCity;
@@ -54,6 +57,10 @@ app.post('/', function(req, res){
       sendData.currDesc = mainDesc;
       sendData.currTemp = Math.floor(mainTemp) + "°F";
       sendData.currHumidity = "Humidity: " + mainHumidity + "%";
+      sendData.currWindSpeed = "Wind Speed: " + mainWindSpeed + " mph";
+      sendData.currTempMin = "Min. Temp: " + mainTempMin + "°F";
+      sendData.currTempMax = "Max. Temp: " + mainTempMax + "°F";
+
       res.render('index',{
         SendData: sendData
       });
@@ -62,24 +69,24 @@ app.post('/', function(req, res){
 
 
 
-  //5 Days Forecast
-  const url1 = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&appid=" + apiKey + "&units=imperial";
-  https.get(url1, (response) => {
-    response.on('data', (data2) =>{
-      const forecastData = JSON.parse(data2);
-      console.log(forecastData);
-      const day1temp = Math.floor(forecastData.list[3].main.temp);
-      const day1Date = (forecastData.list[3].dt_txt).slice(5, 10);
-
-
-      const sendData = {};
-      sendData.day1Date = day1Date;
-      sendData.day1Temp = day1temp + "°F";
-      res.render('index', {
-        SendData: sendData
-      });
-    });
-  });
+  // //5 Days Forecast
+  // const url1 = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&appid=" + apiKey + "&units=imperial";
+  // https.get(url1, (response) => {
+  //   response.on('data', (data2) =>{
+  //     const forecastData = JSON.parse(data2);
+  //     console.log(forecastData);
+  //     const day1temp = Math.floor(forecastData.list[3].main.temp);
+  //     const day1Date = (forecastData.list[3].dt_txt).slice(5, 10);
+  //
+  //
+  //     const sendData = {};
+  //     sendData.day1Date = day1Date;
+  //     sendData.day1Temp = day1temp + "°F";
+  //     res.render('index', {
+  //       SendData: sendData
+  //     });
+  //   });
+  // });
 
 
 }); //app.post end
