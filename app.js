@@ -66,36 +66,54 @@ app.post('/', function(req, res){
       });
     });
   });
-
-
-
-  // //5 Days Forecast
-  // const url1 = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&appid=" + apiKey + "&units=imperial";
-  // https.get(url1, (response) => {
-  //   response.on('data', (data2) =>{
-  //     const forecastData = JSON.parse(data2);
-  //     console.log(forecastData);
-  //     const day1temp = Math.floor(forecastData.list[3].main.temp);
-  //     const day1Date = (forecastData.list[3].dt_txt).slice(5, 10);
-  //
-  //
-  //     const sendData = {};
-  //     sendData.day1Date = day1Date;
-  //     sendData.day1Temp = day1temp + "°F";
-  //     res.render('index', {
-  //       SendData: sendData
-  //     });
-  //   });
-  // });
-
-
 }); //app.post end
 
+//5 Day Forecast Section
 app.get('/forecast', (req, res) =>{
-  const sendData = {}
+  const sendData1 = {}
   res.render('forecast', {
-    SendData: sendData
+    SendData: sendData1
   });
+});
+
+app.post('/forecast', (req, res) =>{
+  const apiKey = process.env.API_KEY;
+  const query = req.body.City;
+  const units = "imperial";
+
+  const url1 = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&appid=" + apiKey + "&units=imperial";
+  https.get(url1, (response)=>{
+    response.on('data', (data2) => {
+      const forecastData = JSON.parse(data2);
+      console.log(forecastData);
+
+      //Day 1
+
+      const day1Date = (forecastData.list[3].dt_txt).slice(5, 10);
+      const day1temp = Math.floor(forecastData.list[3].main.temp);
+      const day1IconURL = "http://openweathermap.org/img/wn/" + forecastData.list[2].weather[0].icon +"@2x.png";
+      const day1Desc = forecastData.list[2].weather[0].description;
+      const day1Humidity = forecastData.list[2].main.humidity;
+      // const mainWindSpeed = weatherData.wind.speed;
+      // const mainTempMin = Math.floor(weatherData.main.temp_min);
+      // const mainTempMax = Math.floor(weatherData.main.temp_max);
+
+
+
+      const sendData1 = {};
+      sendData1.day1Date = day1Date;
+      sendData1.day1Temp = day1temp + "°F";
+      sendData1.day1Icon = day1IconURL;
+      sendData1.day1Desc = day1Desc;
+      sendData1.day1Humidity = day1Humidity;
+
+      res.render('forecast', {
+        SendData: sendData1
+      });
+
+    });
+  });
+
 });
 
 
