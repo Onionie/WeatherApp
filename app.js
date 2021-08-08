@@ -79,7 +79,6 @@ app.get('/forecast', (req, res) =>{
 app.post('/forecast', (req, res) =>{
   const apiKey = process.env.API_KEY;
   const query = req.body.City;
-  const units = "imperial";
 
   const url1 = "https://api.openweathermap.org/data/2.5/forecast?q=" + query + "&appid=" + apiKey + "&units=imperial";
   https.get(url1, (response)=>{
@@ -89,11 +88,12 @@ app.post('/forecast', (req, res) =>{
 
       //Day 1
 
-      const day1Date = (forecastData.list[3].dt_txt).slice(5, 10);
-      const day1temp = Math.floor(forecastData.list[3].main.temp);
-      const day1IconURL = "http://openweathermap.org/img/wn/" + forecastData.list[2].weather[0].icon +"@2x.png";
-      const day1Desc = forecastData.list[2].weather[0].description;
-      const day1Humidity = forecastData.list[2].main.humidity;
+      const day1Date = (forecastData.list[1].dt_txt).slice(5, 10);
+      const day1temp = Math.floor(forecastData.list[1].main.temp);
+      const day1IconURL = "http://openweathermap.org/img/wn/" + forecastData.list[1].weather[0].icon +"@2x.png";
+      const day1Desc = forecastData.list[1].weather[0].description;
+      const day1Humidity = forecastData.list[1].main.humidity;
+      const day1windSpeed = forecastData.list[1].wind.speed;
       // const mainWindSpeed = weatherData.wind.speed;
       // const mainTempMin = Math.floor(weatherData.main.temp_min);
       // const mainTempMax = Math.floor(weatherData.main.temp_max);
@@ -105,7 +105,8 @@ app.post('/forecast', (req, res) =>{
       sendData1.day1Temp = day1temp + "°F";
       sendData1.day1Icon = day1IconURL;
       sendData1.day1Desc = day1Desc;
-      sendData1.day1Humidity = day1Humidity;
+      sendData1.day1Humidity = "Humidity: " + day1Humidity + "%";
+      sendData1.day1WindSpeed = "Wind Speed: " + day1windSpeed + "mph";
 
       res.render('forecast', {
         SendData: sendData1
