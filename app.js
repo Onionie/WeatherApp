@@ -90,6 +90,8 @@ app.post('/forecast', (req, res) =>{
       const forecastData = JSON.parse(result);
       console.log(forecastData);
 
+      const sendData1 = {};
+
       //Day 1
 
       const day1Date = (forecastData.list[1].dt_txt).slice(5, 10);
@@ -98,13 +100,8 @@ app.post('/forecast', (req, res) =>{
       const day1Desc = forecastData.list[1].weather[0].description;
       const day1Humidity = forecastData.list[1].main.humidity;
       const day1windSpeed = forecastData.list[1].wind.speed;
-      // const mainWindSpeed = weatherData.wind.speed;
-      // const mainTempMin = Math.floor(weatherData.main.temp_min);
-      // const mainTempMax = Math.floor(weatherData.main.temp_max);
 
-
-
-      const sendData1 = {};
+      //Day 1
       sendData1.day1Date = day1Date;
       sendData1.day1Temp = day1temp + "°F";
       sendData1.day1Icon = day1IconURL;
@@ -112,67 +109,31 @@ app.post('/forecast', (req, res) =>{
       sendData1.day1Humidity = "Humidity: " + day1Humidity + "%";
       sendData1.day1WindSpeed = "Wind Speed: " + day1windSpeed + "mph";
 
+      //Day 2
+      const day2Date = (forecastData.list[8].dt_txt).slice(5, 10);
+      const day2temp = Math.floor(forecastData.list[8].main.temp);
+      const day2IconURL = "http://openweathermap.org/img/wn/" + forecastData.list[1].weather[0].icon +"@2x.png";
+      const day2Desc = forecastData.list[8].weather[0].description;
+      const day2Humidity = forecastData.list[8].main.humidity;
+      const day2windSpeed = forecastData.list[8].wind.speed;
+
+      sendData1.day2Date = day2Date;
+      sendData1.day2Temp = day2temp + "°F";
+      sendData1.day2Icon = day2IconURL;
+      sendData1.day2Desc = day2Desc;
+      sendData1.day2Humidity = "Humidity: " + day2Humidity + "%";
+      sendData1.day2WindSpeed = "Wind Speed: " + day2windSpeed + "mph";
+
+
+
+
+
       res.render('forecast', {
         SendData: sendData1
       });
     });
-})
-
-  // https.get(url1, (response)=>{
-  //   response.on('data', (data2) => {
-      // const forecastData = JSON.parse(data2);
-      // console.log(forecastData);
-      //
-      // //Day 1
-      //
-      // const day1Date = (forecastData.list[1].dt_txt).slice(5, 10);
-      // const day1temp = Math.floor(forecastData.list[1].main.temp);
-      // const day1IconURL = "http://openweathermap.org/img/wn/" + forecastData.list[1].weather[0].icon +"@2x.png";
-      // const day1Desc = forecastData.list[1].weather[0].description;
-      // const day1Humidity = forecastData.list[1].main.humidity;
-      // const day1windSpeed = forecastData.list[1].wind.speed;
-      // // const mainWindSpeed = weatherData.wind.speed;
-      // // const mainTempMin = Math.floor(weatherData.main.temp_min);
-      // // const mainTempMax = Math.floor(weatherData.main.temp_max);
-      //
-      //
-      //
-      // const sendData1 = {};
-      // sendData1.day1Date = day1Date;
-      // sendData1.day1Temp = day1temp + "°F";
-      // sendData1.day1Icon = day1IconURL;
-      // sendData1.day1Desc = day1Desc;
-      // sendData1.day1Humidity = "Humidity: " + day1Humidity + "%";
-      // sendData1.day1WindSpeed = "Wind Speed: " + day1windSpeed + "mph";
-      //
-      // res.render('forecast', {
-      //   SendData: sendData1
-      // });
-
-    });
-
-
-
-
-  // https.get(url, function(response){
-  //   console.log(response.statusCode);
-  //   response.on('data', function(data){       //callback data
-  //     const weatherData = JSON.parse(data); //parse the data into JSON
-  //     const weatherDesc = weatherData.weather[0].description;
-  //     const icon = weatherData.weather[0].icon;
-  //     const imageURL = "http://openweathermap.org/img/wn/" +icon +"@2x.png";
-  //     const weatherTemp = weatherData.main.temp;
-  //     res.write("<h1>The Temperature is: " + weatherTemp + " Degrees in Fahrenheit" + "</h1>");
-  //     res.write("<h1>The weather is  like " + weatherDesc + " in " + query + "</h1>");
-  //     res.write("<img src =" + imageURL + ">");
-  //     res.send();
-  //   });
-  //
-  // }); //https.get end
-
-
-
-
+  }); //https.get end
+}); //app.post end
 
 app.listen(port, function(){
   console.log("Listening to port 3000");
