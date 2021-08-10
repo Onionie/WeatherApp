@@ -156,17 +156,17 @@ app.post('/forecast', (req, res) =>{
 
       const day5Date = (forecastData.list[32].dt_txt).slice(5, 10);
       const day5temp = Math.floor(forecastData.list[32].main.temp);
-      const day4IconURL = "http://openweathermap.org/img/wn/" + forecastData.list[32].weather[0].icon +"@2x.png";
-      const day4Desc = forecastData.list[32].weather[0].description;
-      const day4Humidity = forecastData.list[32].main.humidity;
-      const day4windSpeed = forecastData.list[32].wind.speed;
+      const day5IconURL = "http://openweathermap.org/img/wn/" + forecastData.list[32].weather[0].icon +"@2x.png";
+      const day5Desc = forecastData.list[32].weather[0].description;
+      const day5Humidity = forecastData.list[32].main.humidity;
+      const day5windSpeed = forecastData.list[32].wind.speed;
 
-      sendData1.day4Date = day4Date;
-      sendData1.day4Temp = day4temp + "°F";
-      sendData1.day4Icon = day4IconURL;
-      sendData1.day4Desc = day4Desc;
-      sendData1.day4Humidity = "Humidity: " + day4Humidity + "%";
-      sendData1.day4WindSpeed = "Wind Speed: " + day4windSpeed + "mph";
+      sendData1.day5Date = day5Date;
+      sendData1.day5Temp = day5temp + "°F";
+      sendData1.day5Icon = day5IconURL;
+      sendData1.day5Desc = day5Desc;
+      sendData1.day5Humidity = "Humidity: " + day5Humidity + "%";
+      sendData1.day5WindSpeed = "Wind Speed: " + day5windSpeed + "mph";
 
 
 
