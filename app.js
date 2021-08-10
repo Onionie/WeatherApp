@@ -112,7 +112,7 @@ app.post('/forecast', (req, res) =>{
       //Day 2
       const day2Date = (forecastData.list[8].dt_txt).slice(5, 10);
       const day2temp = Math.floor(forecastData.list[8].main.temp);
-      const day2IconURL = "http://openweathermap.org/img/wn/" + forecastData.list[1].weather[0].icon +"@2x.png";
+      const day2IconURL = "http://openweathermap.org/img/wn/" + forecastData.list[8].weather[0].icon +"@2x.png";
       const day2Desc = forecastData.list[8].weather[0].description;
       const day2Humidity = forecastData.list[8].main.humidity;
       const day2windSpeed = forecastData.list[8].wind.speed;
@@ -123,6 +123,22 @@ app.post('/forecast', (req, res) =>{
       sendData1.day2Desc = day2Desc;
       sendData1.day2Humidity = "Humidity: " + day2Humidity + "%";
       sendData1.day2WindSpeed = "Wind Speed: " + day2windSpeed + "mph";
+
+      //Day 3
+      const day3Date = (forecastData.list[16].dt_txt).slice(5, 10);
+      const day3temp = Math.floor(forecastData.list[16].main.temp);
+      const day3IconURL = "http://openweathermap.org/img/wn/" + forecastData.list[16].weather[0].icon +"@2x.png";
+      const day3Desc = forecastData.list[16].weather[0].description;
+      const day3Humidity = forecastData.list[16].main.humidity;
+      const day3windSpeed = forecastData.list[16].wind.speed;
+
+      sendData1.day3Date = day3Date;
+      sendData1.day3Temp = day3temp + "°F";
+      sendData1.day3Icon = day3IconURL;
+      sendData1.day3Desc = day3Desc;
+      sendData1.day3Humidity = "Humidity: " + day3Humidity + "%";
+      sendData1.day3WindSpeed = "Wind Speed: " + day3windSpeed + "mph";
+
 
 
 
