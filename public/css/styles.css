@@ -26,6 +26,7 @@ a{
 }
 
 footer{
+  padding-top: 50px;
   text-align: center;
   width: 100%;
 }
@@ -90,5 +91,10 @@ footer{
   background: rgba(250, 244, 255, 0.9);
   border-radius: 5px;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.error{
+  padding: 150px;
   text-align: center;
 }
