@@ -2,7 +2,7 @@
 require('dotenv').config(); // for my api
 const express = require('express'); //to use express
 const https = require('https'); //to fetch https api
-const path = require('path');
+const path = require('path'); //need when working with directories
 const ejs = require("ejs");
 const bodyParser = require('body-parser');
 
@@ -16,6 +16,7 @@ app.set('view engine', 'ejs');
 //To use styling through public folder
 app.use(express.static('public'));
 
+//To use body parser from index/front-end
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", function(req, res){
@@ -41,8 +42,7 @@ app.post('/', function(req, res){
     response.on('data', function(data1){       //callback data
 
       if (response.statusCode === 200){
-      const weatherData = JSON.parse(data1); //parse the data into JSON
-      console.log(weatherData);
+      const weatherData = JSON.parse(data1); //parse the API data into JSON
       const mainLocationCity = weatherData.name;
       const mainIcon = weatherData.weather[0].icon;
       const iconURL = "http://openweathermap.org/img/wn/" +mainIcon +"@2x.png";
@@ -91,6 +91,11 @@ app.post('/forecast', (req, res) =>{
   https.get(url1, function(response){
     if (response.statusCode === 200){
 
+      //When working with a big API file/doc, you need to wait for full response
+      //Create an empty variable called result
+      //"data" collects all chunks
+      //"end" is where you parse data
+      
       let result = '';
       response.on("data", (data2) =>{
           result += data2;

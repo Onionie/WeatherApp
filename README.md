@@ -3,8 +3,11 @@ A simple weather application that can retrieve data from OpenWeatherMap API usin
 
 # Tools Used
 - HTML
+- CSS
+- Javascript
 - Node.js
 - Express
+- EJS
 - OpenWeatherMap API
 
 # Screenshots
