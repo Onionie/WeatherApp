@@ -11,5 +11,5 @@ A simple weather application that can retrieve data from OpenWeatherMap API usin
 - OpenWeatherMap API
 
 # Screenshots
-<img src = "https://github.com/Onionie/WeatherApp/blob/main/Screenshots/1.PNG">
-<img src = "https://github.com/Onionie/WeatherApp/blob/main/Screenshots/2.PNG">
+<img src = "https://github.com/Onionie/WeatherApp/blob/main/public/Images/1.PNG">
+<img src = "https://github.com/Onionie/WeatherApp/blob/main/public/Images/2.PNG">
