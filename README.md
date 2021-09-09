@@ -1,5 +1,8 @@
 # Weather App
-A simple weather application that can retrieve data from OpenWeatherMap API using node js.
+A simple weather application that can retrieve data from OpenWeatherMap API using Node.js. Users can look up a city or a zip code and this Weather Application will fetch data from the back-end and translate it to front-end.
+
+# Deployment
+
 
 # Tools Used
 - HTML
