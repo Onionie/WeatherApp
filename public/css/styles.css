@@ -1,54 +1,56 @@
 body {
-    background-image:url("/Images/mountain.jpg");
-    background-size: 100% 100%;
+  background-image: url('/Images/mountain.jpg');
+  background-size: cover;
+  background-position: top;
+  overflow-x: hidden;
 }
 
 html {
-    height: 100%
+  height: 100%;
 }
 
-form{
+form {
   padding: 10px 10%;
 }
 
-button{
+button {
   display: inline-block;
 }
 
-img{
-  background-color: #FBE0C4;
+img {
+  background-color: #fbe0c4;
   border-radius: 16px;
 }
 
-a{
+a {
   font-size: 1.5rem;
   color: black;
 }
 
-footer{
+footer {
   padding-top: 30px;
   text-align: center;
   width: 100%;
 }
 
-.link{
+.link {
   text-decoration: none;
   color: white;
   font-size: 1rem;
 }
 
-.link:hover{
-    text-decoration: none;
-    color: #0CECDD;
+.link:hover {
+  text-decoration: none;
+  color: #0cecdd;
 }
 
-.topHead{
+.topHead {
   margin: auto;
   text-align: center;
   padding: 50px 0;
 }
 
-.topHead form{
+.topHead form {
   padding: 10px 30%;
 }
 
@@ -63,18 +65,17 @@ footer{
   padding-top: 20px;
 }
 
-.suncloud{
+.suncloud {
   color: white;
 }
 
-
-.top-border{
-  background-image: linear-gradient(65deg, #7C83FD, #FBE0C4);
+.top-border {
+  background-image: linear-gradient(65deg, #7c83fd, #fbe0c4);
   padding: 1%;
   color: white;
 }
 
-.search-box{
+.search-box {
   width: 80%;
   display: inline-block;
 }
@@ -94,7 +95,7 @@ footer{
   text-align: center;
 }
 
-.error{
+.error {
   padding: 150px;
   text-align: center;
 }
